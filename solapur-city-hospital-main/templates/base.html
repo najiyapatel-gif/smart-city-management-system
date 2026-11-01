@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Solapur City Hospital Management{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a class="brand" href="{{ url_for('dashboard') }}">
+                Solapur City Hospital
+            </a>
+
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('cities') }}">Cities</a>
+                <a href="{{ url_for('hospitals') }}">Hospitals</a>
+                <a href="{{ url_for('departments') }}">Departments</a>
+                <a href="{{ url_for('specializations') }}">Specializations</a>
+                <a href="{{ url_for('facilities') }}">Facilities</a>
+                <a href="{{ url_for('branches') }}">Branches</a>
+                <a href="{{ url_for('timings') }}">Timings</a>
+                <a href="{{ url_for('ownership') }}">Ownership</a>
+                <a href="{{ url_for('ratings') }}">Ratings</a>
+                <a href="{{ url_for('add_hospital') }}">+ Add Hospital</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>Solapur City Hospital Management System</p>
+    </footer>
+
+</body>
+</html>

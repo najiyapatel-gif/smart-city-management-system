@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | CivicCare</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #172b4d;
+        }
+
+        header {
+            background: #172b4d;
+            color: white;
+            padding: 20px 7%;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            margin: 65px auto;
+            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e5eaf2;
+            box-shadow: 0 8px 30px #0f172a0d;
+        }
+
+        .tag {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        h1 {
+            margin: 12px 0;
+            font-size: 29px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .notice {
+            padding: 12px;
+            background: #eff6ff;
+            color: #1e40af;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px #2563eb18;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #172b4d;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #263f68;
+        }
+
+        .message {
+            padding: 11px;
+            margin-bottom: 12px;
+            border-radius: 7px;
+            background: #e0f2fe;
+            color: #075985;
+            font-size: 14px;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>CivicCare</h2>
+    </header>
+
+    <main class="container">
+        <div class="tag">ADMINISTRATOR PORTAL</div>
+
+        <h1>Admin Login</h1>
+
+        <p class="subtitle">
+            Sign in to manage citizen complaints, update their status,
+            and monitor grievance resolution.
+        </p>
+
+        <div class="notice">
+            <strong>Authorized access only.</strong>
+            This portal is intended for registered administrators.
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST"
+              action="{{ url_for('admin_login') }}">
+
+            <label for="email">Admin Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter admin email"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter admin password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">Secure Login</button>
+        </form>
+
+        <div class="links">
+            <a href="/">
+                ← Back to Portal Selection
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        © CivicCare | Citizen Complaint &amp; Grievance Management System
+    </footer>
+</body>
+</html>

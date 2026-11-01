@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | Solapur City Hospital{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <h1>{{ title }}</h1>
+    <p>Database records and information.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    {% for column in columns %}
+                    <th>{{ column.replace("_", " ")|title }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    {% for column in columns %}
+                    <td>{{ record[column] if record[column] is not none else "Not provided" }}</td>
+                    {% endfor %}
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="20">No records found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+# Environment and passwords
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE files
+.vscode/

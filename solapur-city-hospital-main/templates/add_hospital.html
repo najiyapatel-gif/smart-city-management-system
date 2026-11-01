@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hospital - Solapur City Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            margin: 0;
+            padding: 30px 16px;
+            color: #243247;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #00000012;
+        }
+        h1 { color: #075985; }
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+        input, select {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+        button {
+            margin-top: 24px;
+            padding: 12px 18px;
+            background: #075985;
+            color: white;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .error { color: #b91c1c; }
+        a { color: #075985; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Hospital</h1>
+        <p>Enter the hospital's information below.</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label for="hospital_name">Hospital Name *</label>
+            <input id="hospital_name" name="hospital_name"
+                   type="text" required maxlength="150">
+
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text"
+                   maxlength="255">
+
+            <label for="contact">Contact Number</label>
+            <input id="contact" name="contact" type="text"
+                   maxlength="30">
+
+            <label for="city_id">City *</label>
+            <select id="city_id" name="city_id" required>
+                <option value="">Select a city</option>
+                {% for city in cities %}
+                    <option value="{{ city.city_id }}">
+                        {{ city.city_name }}, {{ city.state }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Save Hospital</button>
+        </form>
+
+        <p><a href="/">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

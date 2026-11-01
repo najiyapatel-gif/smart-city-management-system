@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Cities | Hospital Management{% endblock %}
+
+{% block content %}
+
+<style>
+    .cities-container {
+        max-width: 1100px;
+        margin: 35px auto;
+        padding: 20px;
+    }
+
+    .cities-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .cities-header h1 {
+        font-size: 28px;
+        margin: 0 0 8px;
+        color: #1e293b;
+    }
+
+    .cities-header p {
+        color: #64748b;
+        margin: 0;
+    }
+
+    .city-count {
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 14px 22px;
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+    .cities-table-card {
+        background: white;
+        padding: 25px;
+        border-radius: 14px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+        overflow-x: auto;
+    }
+
+    .cities-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .cities-table th {
+        background: #eff6ff;
+        color: #1e40af;
+        padding: 16px;
+        font-size: 14px;
+    }
+
+    .cities-table td {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #334155;
+    }
+
+    .cities-table tbody tr:hover {
+        background: #f8fafc;
+    }
+
+    .city-id {
+        font-weight: 600;
+        color: #2563eb;
+    }
+
+    .city-name {
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    .state-tag {
+        background: #dcfce7;
+        color: #166534;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .empty-message {
+        text-align: center;
+        padding: 35px;
+        color: #64748b;
+    }
+
+    @media(max-width: 600px) {
+        .cities-container {
+            padding: 12px;
+        }
+
+        .cities-table-card {
+            padding: 12px;
+        }
+    }
+</style>
+
+<div class="cities-container">
+
+    <div class="cities-header">
+        <div>
+            <h1>City Management</h1>
+            <p>View all cities registered in the hospital directory.</p>
+        </div>
+
+        <div class="city-count">
+            Total Cities: {{ cities|length }}
+        </div>
+    </div>
+
+    <div class="cities-table-card">
+
+        <table class="cities-table">
+            <thead>
+                <tr>
+                    <th>City ID</th>
+                    <th>City Name</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for city in cities %}
+                <tr>
+                    <td class="city-id">#{{ city.city_id }}</td>
+                    <td class="city-name">{{ city.city_name }}</td>
+                    <td>
+                        <span class="state-tag">
+                            {{ city.state }}
+                        </span>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3" class="empty-message">
+                        No cities found in the database.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Hospitals | Solapur City Hospital{% endblock %}
+
+{% block content %}
+<h1>Hospital Management</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Hospital ID</th>
+            <th>Hospital Name</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>City</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for hospital in hospitals %}
+        <tr>
+            <td>{{ hospital.hospital_id }}</td>
+            <td>{{ hospital.hospital_name }}</td>
+            <td>{{ hospital.address }}</td>
+            <td>{{ hospital.contact }}</td>
+            <td>{{ hospital.city_name }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5">No hospitals found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

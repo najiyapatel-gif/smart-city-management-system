@@ -1,0 +1,272 @@
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #0c3555;
+    padding: 18px 5%;
+    color: white;
+    box-shadow: 0 3px 12px #00000018;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* MAIN CONTAINER */
+.dashboard-container {
+    padding: 35px 5%;
+    max-width: 1600px;
+    margin: auto;
+}
+
+/* DASHBOARD HEADING */
+.dashboard-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dashboard-heading h1,
+.dashboard-container > h1 {
+    font-size: 28px;
+    color: #0c3555;
+}
+
+.dashboard-heading p,
+.dashboard-container > p {
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.add-btn {
+    background: #0284c7;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #0369a1;
+}
+
+/* STATISTICS CARDS */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    border-left: 4px solid #0284c7;
+    box-shadow: 0 3px 12px #0000000b;
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+}
+
+.dashboard-card h3 {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.dashboard-card h2 {
+    font-size: 30px;
+    color: #075985;
+}
+
+/* TABLE SECTIONS */
+.hospital-section {
+    background: white;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0000000b;
+}
+
+.section-title h2 {
+    color: #0c3555;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #e0f2fe;
+    color: #075985;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* DATABASE MODULES */
+.modules-section {
+    margin-top: 35px;
+}
+
+.modules-section h2 {
+    color: #0c3555;
+    margin-bottom: 8px;
+}
+
+.modules-section > p {
+    color: #64748b;
+    margin-bottom: 22px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.module-card {
+    display: block;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s ease;
+    box-shadow: 0 3px 12px #00000008;
+}
+
+.module-card h3 {
+    color: #075985;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.module-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: #0284c7;
+    box-shadow: 0 5px 18px #00000012;
+}
+
+/* GENERAL LINKS */
+a {
+    transition: 0.2s ease;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 22px;
+    margin-top: 30px;
+    background: #0c3555;
+    color: white;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .dashboard-heading {
+        align-items: flex-start;
+    }
+
+    .dashboard-heading h1,
+    .dashboard-container > h1 {
+        font-size: 23px;
+    }
+
+    .dashboard-container {
+        padding: 22px 4%;
+    }
+
+    .hospital-section {
+        padding: 15px;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+}

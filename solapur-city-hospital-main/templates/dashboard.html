@@ -1,0 +1,126 @@
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Solapur City Hospital{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <!-- Dashboard Heading -->
+    <div class="dashboard-heading">
+        <div>
+            <h1>Hospital Management Dashboard</h1>
+            <p>Solapur City Hospital Database Overview</p>
+        </div>
+
+        <a href="{{ url_for('add_hospital') }}" class="add-btn">
+            + Add Hospital
+        </a>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="dashboard-cards">
+        {% for item in counts %}
+        <div class="dashboard-card">
+            <h3>{{ item.label }}</h3>
+            <h2>{{ item.total }}</h2>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Registered Hospitals -->
+    <section class="hospital-section">
+        <div class="section-title">
+            <h2>Registered Hospitals</h2>
+        </div>
+
+        {% if hospitals %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hospital Name</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for hospital in hospitals %}
+                    <tr>
+                        <td>{{ hospital.hospital_id }}</td>
+                        <td>{{ hospital.hospital_name }}</td>
+                        <td>{{ hospital.address or "Not provided" }}</td>
+                        <td>{{ hospital.contact or "Not provided" }}</td>
+                        <td>{{ hospital.city_name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>No hospitals registered yet.</p>
+        {% endif %}
+    </section>
+
+    <!-- Database Modules -->
+    <section class="modules-section">
+        <h2>Hospital Database Modules</h2>
+        <p>Manage information according to your ER diagram.</p>
+
+        <div class="module-grid">
+
+            <a href="{{ url_for('cities') }}" class="module-card">
+                <h3>City</h3>
+                <p>Manage cities</p>
+            </a>
+
+            <a href="{{ url_for('hospitals') }}" class="module-card">
+                <h3>Hospital</h3>
+                <p>Manage hospitals</p>
+            </a>
+
+            <a href="{{ url_for('departments') }}" class="module-card">
+                <h3>Department</h3>
+                <p>Hospital departments</p>
+            </a>
+
+            <a href="{{ url_for('specializations') }}" class="module-card">
+                <h3>Specialization</h3>
+                <p>Hospital specializations</p>
+            </a>
+
+            <a href="{{ url_for('facilities') }}" class="module-card">
+                <h3>Facilities</h3>
+                <p>Hospital facilities</p>
+            </a>
+
+            <a href="{{ url_for('branches') }}" class="module-card">
+                <h3>Hospital Branch</h3>
+                <p>Manage hospital branches</p>
+            </a>
+
+            <a href="{{ url_for('timings') }}" class="module-card">
+                <h3>Hospital Timings</h3>
+                <p>Manage hospital timings</p>
+            </a>
+
+            <a href="{{ url_for('ownership') }}" class="module-card">
+                <h3>Hospital Ownership</h3>
+                <p>Manage hospital ownership</p>
+            </a>
+
+            <a href="{{ url_for('ratings') }}" class="module-card">
+                <h3>Hospital Ratings</h3>
+                <p>Manage hospital ratings</p>
+            </a>
+
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

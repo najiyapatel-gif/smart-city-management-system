@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Solapur City Hospital{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">SOLAPUR CITY • PUBLIC SERVICE PORTAL</p>
+
+        <h1>Your Concern.<br>Our Commitment.</h1>
+
+        <p class="hero-description">
+            Submit hospital-related grievances, share your concerns,
+            and access hospital information through one convenient portal.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#submit-grievance" class="btn">
+                Submit a Grievance
+            </a>
+
+            <a href="#services" class="btn btn-outline">
+                Explore Services
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="hospital-icon">✚</div>
+        <h2>Healthcare Support</h2>
+        <p>Helping citizens access hospital information and raise concerns.</p>
+    </div>
+</section>
+
+<section class="container home-section" id="services">
+    <div class="section-heading">
+        <p class="eyebrow">OUR SERVICES</p>
+        <h2>How can we help you?</h2>
+        <p>Choose a service to get started.</p>
+    </div>
+
+    <div class="service-grid">
+        <article class="service-card">
+            <div class="service-icon">✎</div>
+            <h3>Submit a Grievance</h3>
+            <p>
+                Share a concern related to hospital services,
+                facilities, or patient support.
+            </p>
+            <a href="#submit-grievance">Get started →</a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">⌕</div>
+            <h3>Track a Grievance</h3>
+            <p>
+                Find out how to check the progress of a submitted
+                grievance.
+            </p>
+            <a href="#track-grievance">Track status →</a>
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">✚</div>
+            <h3>Hospital Directory</h3>
+            <p>
+                Explore registered hospitals and their contact
+                information.
+            </p>
+            <a href="{{ url_for('dashboard') }}">View hospitals →</a>
+        </article>
+    </div>
+</section>
+
+<section class="container action-section" id="submit-grievance">
+    <div>
+        <p class="eyebrow">CITIZEN SUPPORT</p>
+        <h2>Have a hospital-related concern?</h2>
+        <p>
+            The grievance submission feature will let citizens
+            register their concerns for review.
+        </p>
+    </div>
+
+    <p class="feature-note">
+        Grievance registration is being set up.
+    </p>
+</section>
+
+<section class="container action-section track-section"
+         id="track-grievance">
+    <div>
+        <p class="eyebrow">STATUS UPDATES</p>
+        <h2>Keep track of your concern</h2>
+        <p>
+            Grievance tracking will be available once registration
+            and tracking are connected to the database.
+        </p>
+    </div>
+</section>
+
+{% endblock %}
